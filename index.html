@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakesh Portfolio</title>
+
+<style>
+
+:root{
+--bg:#f5f5f5;
+--text:#222;
+--card:white;
+--accent:#007BFF;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+.dark{
+--bg:#121212;
+--text:#f5f5f5;
+--card:#1e1e1e;
+--accent:#4da3ff;
+}
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:0.3s;
+}
+body, nav, .card {
+  transition: 0.3s ease-in-out;
+}
+
+/* Navbar */
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:15px 25px;
+background:var(--card);
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+z-index:1000;
+transition:0.3s;
+}
+
+nav.scrolled{
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.toggle{
+cursor:pointer;
+padding:5px 10px;
+background:var(--accent);
+color:white;
+border-radius:5px;
+}
+
+/* Hero */
+
+.hero{
+text-align:center;
+padding:40px 20px;
+animation:fadeIn 1s ease-in;
+}
+
+.hero img{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+object-position:top;
+border:3px solid var(--accent);
+transition:0.3s;
+}
+
+.hero img:hover{
+transform:scale(1.08);
+box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+/* Cards */
+
+.section{
+padding:20px;
+max-width:900px;
+margin:auto;
+margin-top:10px;
+}
+
+.card{
+background:var(--card);
+padding:20px;
+border-radius:10px;
+margin-top:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Skills */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+}
+.skills span{
+display:inline-block;
+background:var(--accent);
+color:white;
+padding:5px 12px;
+border-radius:20px;
+margin:5px;
+font-size:14px;
+}
+
+/* Projects */
+
+
+.project{
+  margin-top:10px;
+  padding:12px;
+  border-left:4px solid var(--accent);
+  background:rgba(128,128,128,0.08);
+  border-radius:8px;
+  transition:0.3s;
+}
+
+.project:hover{
+  transform:translateX(5px);
+}
+
+/* Contact */
+
+button{
+padding:8px 15px;
+border:none;
+background:var(--accent);
+color:white;
+border-radius:5px;
+cursor:pointer;
+margin-right:8px;
+margin-top:5px;
+}
+button:hover{
+opacity:0.9;
+transform:translateY(-2px);
+}
+/* Animation */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+.hero h1{
+font-size:22px;
+}
+nav{
+flex-direction:column;
+gap:10px;
+text-align:center;
+}
+}
+#topBtn{
+position:fixed;
+bottom:20px;
+right:20px;
+padding:10px 15px;
+border:none;
+background:var(--accent);
+color:white;
+border-radius:50%;
+cursor:pointer;
+display:none;
+opacity:0;
+transition:0.3s;
+}
+#topBtn.show{
+   opacity:1; 
+}
+#typing{
+  font-size:18px;
+  margin-top:10px;
+  color:var(--accent);
+  min-height:25px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>Rakesh</h2>
+<div class="toggle" onclick="toggleDark()">Dark Mode</div>
+</nav>
+
+<div class="hero">
+<img src="profile.jpg">
+<h1>Rakesh Mondal</h1>
+<p id="typing"></p>
+</div>
+
+<div class="section">
+
+<div class="card">
+<h2>About Me</h2>
+<p>
+I am a B.Tech IT student at Future Institute of Engineering and Management.
+I am passionate about coding, web development and problem solving.
+I enjoy building UI projects and learning new technologies.
+</p>
+</div>
+<div class="card">
+  <h2>Education</h2>
+
+  <p><b>B.Tech in Information Technology</b></p>
+  <p>Future Institute of Engineering and Management</p>
+  <p>2024 - Present</p>
+
+  <br>
+
+  <p><b>Higher Secondary (Class XII)</b></p>
+  <p>Techno India Group Public School, Garia</p>
+  <p>Percentage: 70%</p>
+
+  <br>
+
+  <p><b>Secondary (Class X)</b></p>
+  <p>Techno India Group Public School, Garia</p>
+  <p>Percentage: 86%</p>
+</div>
+
+<div class="card">
+<h2>Skills</h2>
+<div class="skills">
+<span>C</span>
+<span>Python</span>
+<span>HTML</span>
+<span>CSS</span>
+<span>SQL</span>
+</div>
+</div>
+
+<div class="card">
+  <h2>Projects</h2>
+
+  <div class="project">
+    <b>Portfolio Website</b>
+    <p>Responsive personal portfolio with dark mode, animations and typing effect.</p>
+  </div>
+
+  <div class="project">
+    <b>Password Strength Checker</b>
+    <p>JavaScript tool to check password strength based on rules like length, symbols and numbers.</p>
+  </div>
+
+  <div class="project">
+    <b>To-Do List App</b>
+    <p>Simple task manager using HTML, CSS and JavaScript with add and delete features.</p>
+  </div>
+
+</div>
+
+
+
+<div class="card">
+<h2>Contact</h2>
+<p>Email: <a href="mailto:rakeshmondal2006@gmail.com">rakeshmondal2006@gmail.com</a></p>
+
+<button onclick="window.open('https://github.com/rakesh8902')">
+GitHub
+</button>
+
+<button onclick="window.open('https://linkedin.com/in/rakesh-mondal-32b945381')">
+LinkedIn
+</button>
+
+<button onclick="alert('Contact: rakeshmondal2006@gmail.com')">
+Contact Me
+</button>
+
+</div>
+
+</div>
+
+<script>
+const text = [
+  "Hi, I'm Rakesh Mondal",
+  "B.Tech IT Student",
+  "Future Institute of Engineering and Management",
+  "Aspiring Web Developer",
+  "Aspiring Software Developer"
+];
+
+let i = 0;
+let j = 0;
+let isDeleting = false;
+
+function type() {
+  const current = text[i];
+
+  if (!isDeleting) {
+    j++;
+    document.getElementById("typing").textContent = current.substring(0, j);
+
+    if (j === current.length) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+      return;
+    }
+  } else {
+    j--;
+    document.getElementById("typing").textContent = current.substring(0, j);
+
+    if (j === 0) {
+      isDeleting = false;
+      i = (i + 1) % text.length;
+    }
+  }
+
+  setTimeout(type, isDeleting ? 60 : 100);
+}
+
+type();
+
+/* DARK MODE FIX */
+function toggleDark(){
+  document.documentElement.classList.toggle("dark");
+}
+
+/* SCROLL BUTTON FIX */
+window.onscroll = function(){
+  const btn = document.getElementById("topBtn");
+  if(window.scrollY > 200){
+    btn.style.display = "block";
+    btn.classList.add("show");
+  } else {
+    btn.classList.remove("show");
+    btn.style.display = "none";
+  }
+}
+function topFunction(){
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+</script>
+<footer style="text-align:center;padding:20px;margin-top:20px;">
+© 2026 Rakesh Mondal | Portfolio Website
+</footer>
+<button id="topBtn" onclick="topFunction()">↑
+</button>
+</body>
+</html>
